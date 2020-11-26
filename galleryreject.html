@@ -1,0 +1,351 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style  type="text/css">
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  font-family: Arial;
+  height: auto;
+}
+
+h1 {
+  font-size: 30px;
+  word-break: break-all;
+  color: yellow;
+}
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+   
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: none;
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*#myImg:hover {opacity: 0.7;}
+*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* Content */
+.content {
+  background-color:black;
+  filter: url(filters.svg#grayscale);
+    filter: gray;
+     -webkit-filter: grayscale(1);
+     transition-duration: 0.4s;
+  transition-delay: 0.4s;
+ 
+}
+.content:hover{
+    background-color:yellow;
+     filter: none;
+  -webkit-filter: none;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>RÉVE MAISON</h1>
+<hr>
+
+<h2>GALLERY</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('nature')"> Commercial</button>
+  <button class="btn" onclick="filterSelection('cars')"> Residential</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+
+  <div class="column nature">
+    <div class="content">
+         <img id="myImg" src="3dview2.jpg"  alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+
+    </div>
+  </div>
+</div>
+
+  <div class="column nature">
+    <div class="content">
+    <img id="myImg1" src="3DView4.jpg"  alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+    <!-- <img src= alt=" " style="width:100%" height="300px"> -->
+
+    </div>
+  </div>
+
+  <div class="column nature">
+    <div class="content">
+    <img id="myIm" src="2017a.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+  
+    </div>
+  </div>
+
+  <div class="column nature">
+    <div class="content">
+    <img id="myIm2" src="3DView5.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+    </div>
+  </div>
+  
+
+  <div class="column cars">
+    <div class="content">
+     <img id="myIm3" src="final2.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+
+    </div>
+  </div>
+
+  <div class="column cars">
+    <div class="content">
+    <img id="myIm4" src="CONFERENCE ROOM.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+
+    </div>
+  </div>
+  <div class="column cars">
+    <div class="content">
+    <img id="myIm5" src="final2.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+    
+    </div>
+  </div>
+
+
+
+  <div class="column cars">
+    <div class="content">
+      <img id="myIm6" src="view2.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+           </div>
+  </div>
+
+
+  <div class="column people">
+    <div class="content">
+      <img id="myIm7" src="poolandstagearea.jpg"alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+      <img id="myIm8" src="VIEW 5.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+    
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+      <img id="myIm9" src="RESTAURANT.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+   
+  
+    </div> 
+  </div>
+
+
+  <div class="column people">
+    <div class="content">
+      <img id="myIm99" src="view2.jpg" alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
+   
+    
+    </div>
+  </div>
+
+  
+<!-- </div>
+ -->
+<!-- END GRID -->
+</div>
+</div>
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script >
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+ function zoomin(id){
+var img = document.getElementById(id);
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+ filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+var modal = document.getElementById("myModal");
+
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
