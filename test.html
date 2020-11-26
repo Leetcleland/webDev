@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.showcase-menu {
+  margin-left:20px;
+    margin-right:20px;
+    padding: 0px 20px 0px 20px;
+    background-color: #C37500;
+    behavior: url(/css/border-radius.htc);
+  border-radius: 20px;
+    }
+
+.showcase-menu-social img:hover {
+  background-color: #C37500;
+  opacity:0.7 !important;
+  filter:alpha(opacity=70) !important; /* For IE8 and earlier */
+  box-shadow: 0 0 0px #000000 !important;
+}
+
+.column-nature{
+	background: none;
+}
+
+.column-nature:hover{
+	background:#0000ff;
+	transition-delay: 1s; /* delays for 1 second */
+-webkit-transition-delay: 1s; /* for Safari & Chrome */
+	 }
+
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+	 .content{
+  background:white;
+   filter: url(filters.svg#grayscale);
+    filter: gray;
+     -webkit-filter: grayscale(1);
+}
+
+.content:hover{
+  background-color:yellow;
+    filter: none;
+  -webkit-filter: none;
+   }
+
+/*.img-hover-zoom {
+  height: 300px;
+  width: 300px;
+  transition: transform .2s;
+  margin: 0 auto;*/*/
+  /*overflow: hidden;*/
+/*}*/
+
+/*.img-hover-zoom img{
+  transition: transform .5s ease;
+}*/
+
+/* .img-hover-zoom: hover img{
+   transform: scale(1.5);
+    height: 300px;
+    width: 300px;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      transition: all 2s ease;
+ }
+*/
+	/*.img-hover-zoom{
+  height: 300px;
+  overflow: hidden;
+}
+.img-hover-zoom img{
+  transition: transform .5s ease;
+}
+ .img-hover-zoom: hover img{
+    transform: scale(1.5);
+ }
+*/
+
+	*{
+		box-sizing: border-box;
+	}
+	.row{
+		display: flex;
+	}
+
+	.column {
+		flex: 33.33%;
+		padding: 5px;
+
+	}
+
+</style>
+	</head>
+<body>
+
+
+
+	<h2> gallery side by side
+	</h2>
+	<p>outting the gallery side by side</p>
+	<div class="showcase-menu-social"><img class="margin-left-20" src="images/graphics/facebook-50x50.png" alt="facebook-50x50" width="50" height="50" /><img class="margin-left-20" src="images/graphics/twitter-50x50.png" alt="twitter-50x50" width="50" height="50" /><img class="margin-left-20" src="images/graphics/youtube-50x50.png" alt="youtube-50x50" width="50" height="50" /></div>
+
+	<!-- <div class="img-hover-zoom"> -->
+  <div class="row">
+  <div class="column-nature">
+    <div class="content">
+    <img id="myImg" src="view1.jpg" alt="Snow" style="width:100%;max-width:300px">
+
+    </div>
+
+</div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+<!-- </div>
+ -->
+	<div class="row">
+		<div class="column">
+			<img src="unnamed(12).jpg" alt="snow" style="width: 100%">
+			</div>
+		<div class="column">
+				<img src="unnamed(7).jpg" alt="Forest" style="width: 100%">
+				</div>
+		<div class="column">
+			<img src="bg-11.jpg" alt= "Mountain" style="width: 100%">
+		</div>		
+
+	</div>
+
+
+<!-- Get the modal -->
+<script>
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+</script>
+</body>
+</html>
