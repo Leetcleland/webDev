@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style  type="text/css">
-
+/*you left out a lot of styling elements like that of the MAIN, and also took out most of the padding */
 
 * {
   box-sizing: border-box;
@@ -20,6 +20,13 @@ body {
   background-color: #000000;
   font-family: Arial;
   height: auto;
+  padding:20px;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
 }
 
 h1 {
@@ -28,12 +35,21 @@ h1 {
   color: yellow;
 }
 
+.row {
+  margin: 10px -16px;
+}
 
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
 .column {
   float: left;
   width: 33.33%;
   display: none; /* Hide all elements by default */
-   
 }
 
 /* Clear floats after rows */ 
@@ -41,6 +57,14 @@ h1 {
   content: "";
   display: table;
   clear: none;
+}
+
+.content {
+  padding: 10px;
+}
+
+.show {
+  display: block;
 }
 
 #myImg {
@@ -171,7 +195,7 @@ h1 {
 </div>
 
 <!-- Portfolio Gallery Grid -->
-
+<div class="row"> <!--you left out this row div-->
   <div class="column nature">
     <div class="content">
          <img id="myImg" src="3dview2.jpg"  alt="Snow" style="width:100%" height="300px" onclick="zoomin(this.id)">
